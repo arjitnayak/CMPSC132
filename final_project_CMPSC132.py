@@ -3,23 +3,25 @@ import math
 
 def number_guessing_game(difficulty):
     print("\nGenerating Number...")
-    num = random.randint(1,100)
+    num = random.randint(1,100) # randomly generate the target number between 1 and 100
     print("Number Generated\n")
     guess = -math.inf
     attempts = []
-    attempts_num = {"e": 10, "m": 5, "h": 3}
+    attempts_num = {"e": 10, "m": 5, "h": 3} # map difficulty to allowed attempts
     print(f"You Have {attempts_num[difficulty]} Attempts\n")
+    # loop until correct guess OR attempts run out
     while ((num != guess) and (len(attempts) < attempts_num[difficulty])):
         try:
-            guess = int(input("What's Your Guess: "))
+            guess = int(input("What's Your Guess: ")) # convert user input to integer
             if (guess > num):
                 print("\nThe Number Entered is Too High")
             elif (guess < num):
                 print("\nThe Number Entered is Too Low")
-            attempts.append(guess)
+            attempts.append(guess) # track all guesses to count attempts
         except ValueError:
-            print("Please Enter an Integer\n")
+            print("Please Enter an Integer\n") # handle non-integer input safely
         print(f"You Have {attempts_num[difficulty] - len(attempts)} Attempts Left\n")
+    # check win/loss after loop ends
     if (num != guess):
         print("\nYou Lost :(")
         print(f"The Number Was {num}")
@@ -39,16 +41,20 @@ if __name__ == "__main__":
     status_levels = ["y", "n"]
     difficulty_levels = ["e", "m", "h"]
     status = input("Do You Want To Play? (Y/N): ").lower()
+    # validate user input for starting the game
     while(status not in status_levels):
         print("\nPlease Enter Y or N\n")
         status = input("Do You Want To Play? (Y/N): ").lower()
+    # main game loop (runs multiple rounds)
     while status == "y":
         difficulty = input("\nChoose Your Difficulty (E/M/H): ").lower()
+        # validate difficulty selection
         while(difficulty not in difficulty_levels):
             print("\nPlease Enter E or M or H\n")
             difficulty = input("Choose Your Difficulty (E/M/H): ").lower()
         number_guessing_game(difficulty)
         status = input("\nDo You Want To Play Another Round? (Y/N): ").lower()
+        # validate replay input
         while(status not in status_levels):
             print("\nPlease Enter Y or N\n")
             status = input("Do You Want To Play? (Y/N): ").lower()
