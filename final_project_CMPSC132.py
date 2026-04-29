@@ -33,9 +33,9 @@ if __name__ == "__main__":
     print("Rules are Simple:")
     print("1. The Computer Generates a Random Number Between 1-100 (INCLUSIVE) and You Must Guess It In A Certain Number of Attempts")   
     print("2. Easy (E) is in 10 Attempts, Medium (M) is in 5 Attempts, Hard (H) is in 3 Attempts")     
-    print("2. Based On Your Input, The Computer Will Give You Feedback (\"Too High\" or \"Too Low\")")
-    print("3. The Game Will End As Soon As You Get The Correct Number and Will Display The Number of Attempts It Took You")
-    print("4. Last But Not Least, Have Fun\n")
+    print("3. Based On Your Input, The Computer Will Give You Feedback (\"Too High\" or \"Too Low\")")
+    print("4. The Game Will End As Soon As You Get The Correct Number and Will Display The Number of Attempts It Took You")
+    print("5. Last But Not Least, Have Fun\n")
     status_levels = ["y", "n"]
     difficulty_levels = ["e", "m", "h"]
     status = input("Do You Want To Play? (Y/N): ").lower()
